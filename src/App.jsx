@@ -1,29 +1,22 @@
-import { useState } from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-
-
-import CreatePost from './components/CreatePost'
-
-
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
+import DefaultLayout from "./pages/DefaultLayout";
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-    <Header/>
-    <Hero/>
-    <main className='min-h-screen'>
-    <CreatePost/>
-
-    </main>
-
-    <Footer/>
-    </>
-  )
+return (
+  <BrowserRouter>
+    <Routes>
+      <Route element={<DefaultLayout />}>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/blog" element={<Blog />}></Route>
+        
+      
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
 }
 
-export default App
+export default App;
