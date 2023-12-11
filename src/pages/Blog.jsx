@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 
 function Blog() {
   const [posts, setPosts] = useState([]);
-
+  const [categories, setCategories] = useState([]);
+  const [tags, setTags] = useState([]);
 
 
   useEffect(() => {
@@ -66,7 +67,7 @@ function Blog() {
         {posts.map(post => (
           <div key={post.id} className="bg-white p-4 rounded-md shadow-md">
             <h2 className="text-xl text-black font-bold mb-2 uppercase">{post.title}</h2>
-           
+            <p className="text-gray-700 mb-4">{post.content}</p>
             {categories.length > 0 && (
               <p className="text-blue-500">
                 Categoria: {(() => {
